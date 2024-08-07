@@ -1,14 +1,17 @@
 import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import useGenerateRandomColor from '@/hooks/useGenerateRandomColor';
+import ButtonComponent from '@/components/Button/ButtonComponent';
 
 export default function TabOneScreen() {
+
+  const {randomColor,handleGenerateColor} = useGenerateRandomColor()
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+    <View style={[styles.container,{backgroundColor:randomColor}]}>
+       <ButtonComponent title="Hello there" onPress={handleGenerateColor}/>
+       <View>
+        <Text>random color is : {randomColor}</Text>
+       </View>
     </View>
   );
 }
@@ -28,4 +31,5 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+
 });
