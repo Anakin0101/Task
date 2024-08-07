@@ -1,11 +1,8 @@
 import Colors from '@/constants/Colors';
 import React from 'react';
-import { StyleSheet,Text,TouchableOpacity,View,ViewStyle,TextStyle } from 'react-native';
+import { StyleSheet,Text,TouchableOpacity,ViewStyle,TextStyle } from 'react-native';
+import { ButtonComponentProps } from './ButtonComponent.types';
 
-type ButtonComponentProps ={
-    title:string;
-    onPress: ()=> void;
-}
 
 const ButtonComponent: React.FC<ButtonComponentProps>= ({title, onPress})  => {
     return (
